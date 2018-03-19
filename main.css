@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* CSS Grid Layout Styles */
+
+.grid {
+  display: grid;
+  /* remove extra space between grid rows */
+  line-height: 0;
+}
+
+.book-cover {
+  width: 100%;
+}
+
+@media screen and (min-width: 280px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 12px;
+    margin: 0 12px;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  .grid {
+    margin: 0 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    margin: 0 30px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .grid {
+    grid-gap: 20px;
+    margin: 0 50px;
+  }
+}
+
+
+/* Lazy Loading Styles */
+
+.placeholder {
+  background-color: #f6f6f6;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder img {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 1s linear;
+}
+
+.placeholder img.loaded {
+  opacity: 1;
+}
+
+.img-small {
+  filter: blur(50px);
+  /* this is needed so Safari keeps sharp edges */
+  transform: scale(1);
+}
